@@ -1,0 +1,36 @@
+      . seletor-de-mês {
+          exibição: inline-flex;
+          alinhar-itens: centro;
+          cor de fundo: # ffffff;
+          borda: 1 px sólida # e0e0e0;
+          raio-da-borda: 8 px;
+          preenchimento: 8 px 16 px;
+          box-shadow: 0 1 px 3 px rgba (0, 0, 0, 0.05);
+          família de fontes: 'Segoe UI', Tahoma, Genebra, Verdana, sans-serif;
+          largura: 150 px;
+          justify-content: espaço-entre;
+      }
+
+      . btn-seta {
+          fundo: nenhum;
+          borda: nenhuma;
+          tamanho da fonte: 18 px;
+          cor: # 555;
+          cursor: ponteiro;
+          preenchimento: 0 5 px;
+          transição: cor 0, 2 s;
+      }
+
+      . btn-arrow : passar o mouse {
+          cor: # 000;
+      }
+
+      . mês-exibição {
+          tamanho da fonte: 15 px;
+          peso da fonte: 500;
+          cor: # 333;
+          largura mínima: 80 px;
+          alinhamento-do-texto: centralizado;
+          seleção de usuário: nenhum;
+          /* Evita que o texto seja selecionado ao clicar rápido */
+      }

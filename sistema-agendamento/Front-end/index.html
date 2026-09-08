@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Arquivos externos (CSS, JS) e metadados -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="style" href="../sistema-agendamento/styles.css">
+    <script src="../sistema-agendamento/funcions.js"></script>
+
+    <title>Uniage
+    
+    </title>
+
+<body>
+
+    <!-- Formulário Para Cadastro de CTA -->
+    HTML
+    <h2>Cadastro de CTA</h2>
+
+    <form action="/enviar-dados" method="POST">
+
+        <label for="carro">Carro:</label><br>
+        <input type="text" id="carro" name="carro" placeholder="Digite a placa ou modelo" required><br><br>
+
+        <label for="industria">Indústria:</label><br>
+        <input type="text" id="industria" name="industria" placeholder="Digite a Indústria" required><br><br>
+
+        <label for="origem">Origem:</label><br>
+        <input type="text" id="origem" name="origem" placeholder="Digite a Origem" required><br><br>
+
+        <label for="transportadora">Transportadora:</label><br>
+        <input type="text" id="transportadora" name="transportadora" placeholder="Digite a Transportadora"
+            required><br><br>
+
+        <label for="pfornecedor">Pedido do Fornecedor:</label><br>
+        <input type="number" id="pfornecedor" name="pfornecedor" placeholder="Digite o Pedido" required><br><br>
+
+        <label for="nf">Nota Fiscal:</label><br>
+        <input type="number" id="nf" name="nf" placeholder="Digite a Nota Fiscal" required><br><br>
+
+        <label for="qvolume">Quantidade de Volume:</label><br>
+        <input type="number" id="qvolume" name="qvolume" placeholder="Digite o Volume" required><br><br>
+
+        <label for="sku">SKU's:</label><br>
+        <input type="number" id="sku" name="sku" placeholder="Digite a quantidade de SKU" required><br><br>
+
+        <label for="ship">QSHIP:</label><br>
+        <input type="number" id="ship" name="ship" placeholder="Digite o SHIP" required><br><br>
+
+        <input type="submit" value="Cadastrar">
+
+    </form>
+
+    <!-- tabela de base para ter o controle de entrada de mercadoria -->
+    <table>
+        <thead>
+            <tr>
+                <th>Carro</th>
+                <th>Indústria</th>
+                <th>Origem</th>
+                <th>Transportadora</th>
+                <th>Pedido do Fornecedor</th>
+                <th>Nota Fiscal</th>
+                <th>Quantidade do Volume</th>
+                <th>SKU's</th>
+                <th>SHIP</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- 1º Veículo (Entrada) -->
+            <tr>
+                <td>CTA</td>
+                <td>P&G</td>
+                <td>LOUVEIRA</td>
+                <td>DELTA</td>
+                <td>1424889</td>
+                <td>898872</td>
+                <td>1245</td>
+                <td>12</td>
+                <td>12345</td>
+            </tr>
+
+            <!-- 2º Veículo (Agendamento) -->
+            <tr>
+                <td>AGENDA 01</td>
+                <td>UNILEVER</td>
+                <td>SÃO PAULO</td>
+                <td>EXPRESS</td>
+                <td>9988776</td>
+                <td>456123</td>
+                <td>800</td>
+                <td>8</td>
+                <td>67890</td>
+            </tr>
+
+            <!-- 3º Veículo (Dados numéricos anteriores) -->
+            <tr>
+                <td>16</td>
+                <td>14</td>
+                <td>10</td>
+                <td>16</td>
+                <td>14</td>
+                <td>10</td>
+                <td>16</td>
+                <td>14</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+
+<!--- input Selection para trocar o CD's : CD SF, ES, RJ 
+  * usando a Classe e select com a base de input option não precisar colocar texto e economizar expaço 
+  --->
+
+<!-- selection CD --->
+<div class="cd-selector-group" style="width: 350px;">
+    <select class="cd-select" id="centroDistribuicao" name="centroDistribuicao">
+        <option value="SF1004">CENTRO DE DISTRIBUIÇÃO: CD - SF 1004</option>
+        <option value="SP2001">CENTRO DE DISTRIBUIÇÃO: CD - SP 2001</option>
+        <option value="RJ3005">CENTRO DE DISTRIBUIÇÃO: CD - RJ 3005</option>
+        <option value="MG4008">CENTRO DE DISTRIBUIÇÃO: CD - MG 4008</option>
+    </select>
+</div>
+
+<!-- selection MES --->
+
+<div class="month-selector">
+    <button type="button" class="btn-arrow" onclick="mudarMes(-1)">&#8592;</button>
+    <span class="month-display" id="textoMes">Maio</span>
+    <button type="button" class="btn-arrow" onclick="mudarMes(1)">&#8594;</button>
+
+    <!-- O input real que guarda o valor para o formulário (ex: 5 para Maio) -->
+    <input type="hidden" id="inputMes" name="mes_selecionado" value="5">
+</div>
+
+<style>
+    .month-selector {
+        display: inline-flex;
+        align-items: center;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 8px 16px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: 150px;
+        justify-content: space-between;
+    }
+
+    .btn-arrow {
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: #555;
+        cursor: pointer;
+        padding: 0 5px;
+        transition: color 0.2s;
+    }
+
+    .btn-arrow:hover {
+        color: #000;
+    }
+
+    .month-display {
+        font-size: 15px;
+        font-weight: 500;
+        color: #333;
+        min-width: 80px;
+        text-align: center;
+        user-select: none;
+        /* Evita que o texto seja selecionado ao clicar rápido */
+    }
+</style>
+</head>
+
+<body>
+
+
+    <script>
+        // Lista de todos os meses
+        const meses = [
+            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
+
+        // Começamos no índice 4 (Maio). Lembrando que Janeiro é 0.
+        let indiceAtual = 4;
+
+        function mudarMes(direcao) {
+            // Soma ou subtrai a direção (-1 ou +1)
+            indiceAtual += direcao;
+
+            // Se passar de Dezembro (11), volta para Janeiro (0)
+            if (indiceAtual > 11) {
+                indiceAtual = 0;
+            }
+            // Se voltar antes de Janeiro (0), vai para Dezembro (11)
+            else if (indiceAtual < 0) {
+                indiceAtual = 11;
+            }
+
+            // Atualiza o texto visível na tela
+            document.getElementById('textoMes').innerText = meses[indiceAtual];
+
+            // Atualiza o valor do input oculto (índice + 1 para o mês ficar de 1 a 12)
+            document.getElementById('inputMes').value = indiceAtual + 1;
+
+            // Opcional: Se você precisar recarregar dados da tela quando o mês mudar,
+            // você pode chamar a função aqui. Exemplo: carregarDadosDoMes();
+            console.log("Mês selecionado para envio:", document.getElementById('inputMes').value);
+        }
+    </script>
+
+</html>
+<script>
