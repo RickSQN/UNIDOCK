@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniage - Controle de Entrada</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="app-header">
+        <button id="btn-abrir-cta" class="btn-cta">+ Adicionar CTA</button>
+
+        <div class="header-filters">
+            <select class="cd-select" id="centroDistribuicao" name="centroDistribuicao">
+                <option value="SF1004">CD - SF 1004</option>
+                <option value="SP2001">CD - SP 2001</option>
+                <option value="RJ3005">CD - RJ 3005</option>
+                <option value="MG4008">CD - MG 4008</option>
+            </select>
+
+            <div class="month-selector">
+                <button type="button" class="btn-arrow" onclick="mudarMes(-1)">&#8592;</button>
+                <span class="month-display" id="textoMes">Maio</span>
+                <button type="button" class="btn-arrow" onclick="mudarMes(1)">&#8594;</button>
+                <input type="hidden" id="inputMes" name="mes_selecionado" value="5">
+            </div>
+        </div>
+
+        <div class="busca-container">
+            <input type="text" id="input-busca" placeholder="Pesquisar número ou documento..." autocomplete="off">
+            <ul id="resultado-busca"></ul>
+        </div>
+    </header>
+
+    <!-- TABELA PRINCIPAL -->
+    <main class="main-container">
+        <div class="table-card">
+            <div class="table-header">
+                <h2>Controle de Entrada de Mercadoria</h2>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Carro</th>
+                        <th>Indústria</th>
+                        <th>Origem</th>
+                        <th>Transportadora</th>
+                        <th>Pedido</th>
+                        <th>Nota Fiscal</th>
+                        <th>Volume</th>
+                        <th>SKU's</th>
+                        <th>SHIP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CTA</td>
+                        <td><strong>P&G</strong></td>
+                        <td>LOUVEIRA</td>
+                        <td>DELTA</td>
+                        <td>1424889</td>
+                        <td>898872</td>
+                        <td>1.245</td>
+                        <td>12</td>
+                        <td>12345</td>
+                    </tr>
+                    <tr>
+                        <td>AGENDA 01</td>
+                        <td><strong>UNILEVER</strong></td>
+                        <td>SÃO PAULO</td>
+                        <td>EXPRESS</td>
+                        <td>9988776</td>
+                        <td>456123</td>
+                        <td>800</td>
+                        <td>8</td>
+                        <td>67890</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- MODAL DE CADASTRO -->
+    <dialog id="modal-cta">
+        <div class="modal-card">
+            <button type="button" id="btn-fechar-cta" class="btn-fechar" aria-label="Fechar">&times;</button>
+            <h2>Novo Registro de CTA</h2>
+
+            <form action="/enviar-dados" method="POST">
+                <div class="campo">
+                    <label for="carro">Carro / Placa</label>
+                    <input type="text" id="carro" name="carro" placeholder="Ex: Placa ou Modelo" required>
+                </div>
+
+                <div class="campo">
+                    <label for="industria">Indústria</label>
+                    <input type="text" id="industria" name="industria" placeholder="Nome da indústria" required>
+                </div>
+
+                <div class="campo">
+                    <label for="origem">Origem</label>
+                    <input type="text" id="origem" name="origem" placeholder="Cidade ou base" required>
+                </div>
+
+                <div class="campo">
+                    <label for="transportadora">Transportadora</label>
+                    <input type="text" id="transportadora" name="transportadora" placeholder="Nome da transportadora"
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="pfornecedor">Pedido do Fornecedor</label>
+                    <input type="number" id="pfornecedor" name="pfornecedor" placeholder="Ex: 1424889" required>
+                </div>
+
+                <div class="acoes-btn">
+                    <button type="button" id="btn-cancelar" class="btn btn-secundario">Cancelar</button>
+                    <button type="submit" class="btn btn-primario">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- Script linkado corretamente ao final -->
+    <script src="script1.js"></script>
+</body>
+
+</html>
